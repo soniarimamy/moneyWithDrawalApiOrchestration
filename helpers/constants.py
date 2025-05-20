@@ -1,0 +1,11 @@
+#!/usr/bin/python3.11
+
+from helpers.helpers import get_env_or_config
+
+global_variables = {
+    # MONEY WITHDRAWAL PROPERTIES
+    "MONEY_WITHDRAWAL_API": get_env_or_config('MONEY_WITHDRAWAL_API'),
+    # MONEY WITHDRAWAL ORCHESTRATION API PROPERTIES
+    "MONEY_WITHDRAWAL_ORCHESTRATION_API_PORT": int(get_env_or_config('MONEY_WITHDRAWAL_ORCHESTRATION_API_PORT', 6009)),
+    "MONEY_WITHDRAWAL_ORCHESTRATION_API_HOST": get_env_or_config('MONEY_WITHDRAWAL_ORCHESTRATION_API_HOST', '0.0.0.0'),
+}

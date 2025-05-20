@@ -1,0 +1,24 @@
+version: '3'
+services:
+  money_withdraw_api_orchestration_prod:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - MONEY_WITHDRAWAL_API=${MONEY_WITHDRAWAL_API}
+      - MONEY_WITHDRAWAL_ORCHESTRATION_API_PORT=${MONEY_WITHDRAWAL_ORCHESTRATION_API_PORT}
+      - MONEY_WITHDRAWAL_ORCHESTRATION_API_HOST=${MONEY_WITHDRAWAL_ORCHESTRATION_API_HOST}
+    container_name: money_withdraw_api_orchestration_prod
+    command: 'python moneyWithdrawalApiOrchestration-core.py runserver 0.0.0.0:${MONEY_WITHDRAWAL_ORCHESTRATION_API_PORT}'
+    ports:
+      - '${MONEY_WITHDRAWAL_ORCHESTRATION_API_PORT}:${MONEY_WITHDRAWAL_ORCHESTRATION_API_PORT}'
+    networks:
+      money_withdraw_api_orchestration_prod_network: {}
+    restart: unless-stopped
+
+networks:
+  money_withdraw_api_orchestration_prod_network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.69.0.0/16

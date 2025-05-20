@@ -1,0 +1,43 @@
+# standard files
+.mypy_cache
+.vscode
+htmlcov
+dist
+site
+.coverage
+coverage.xml
+.netlify
+test.db
+log.txt
+Pipfile.lock
+docs_build
+site_build
+docs.zip
+archive.zip
+
+# Python files
+*.pyc
+__pycache__
+.pytest_cache
+.idea
+.ipynb_checkpoints
+
+# Python Environments
+.env
+.venv
+env
+env/
+venv
+env3.*
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# vim temporary files
+*~
+.*.sw?
+.cache
+
+# macOS
+.DS_Store
